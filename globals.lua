@@ -20,9 +20,9 @@ globals.volume = 6
 
 -- Used for music and particle effects
 globals.centerpoint = {}
-globals.centerpoint.x = 0
-globals.centerpoint.y = 1
-globals.centerpoint.z = 2
+globals.centerpoint.x = -782
+globals.centerpoint.y = 62
+globals.centerpoint.z = 739
 globals.centerpoint.string = globals.getCoords(globals.centerpoint)
 
 
@@ -31,9 +31,9 @@ globals.launchzone = {}
 globals.launchzone.barges = {}
 
 globals.launchzone.barges[0] = {}
-globals.launchzone.barges[0].x = 10
-globals.launchzone.barges[0].y = 20
-globals.launchzone.barges[0].z = 30
+globals.launchzone.barges[0].x = -775
+globals.launchzone.barges[0].y = 63
+globals.launchzone.barges[0].z = 761
 globals.launchzone.barges[0].string = globals.getCoords(globals.launchzone.barges[0])
 
 return globals;
