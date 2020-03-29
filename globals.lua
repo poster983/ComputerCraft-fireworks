@@ -1,8 +1,9 @@
 local globals = {}
 
 globals.exec = function(command) 
-  commands.execAsync(command)
   print(command)
+  commands.execAsync(command)
+  
 end
 
 -- returns a coord string for commands

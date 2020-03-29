@@ -14,7 +14,7 @@ firework.fire = function(coords, opts, fireworksItem)
   end
 
   --commands.execAsync
-  globals.exec("summon fireworks_rocket " .. coords .. " {" .. config .. "FireworksItem:" .. fireworksItem) 
+  globals.exec("summon fireworks_rocket " .. coords .. " {" .. config .. "FireworksItem:" .. fireworksItem .."}") 
 end
 
 
