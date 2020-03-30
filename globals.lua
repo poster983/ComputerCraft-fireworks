@@ -31,10 +31,26 @@ globals.launchzone = {}
 --Lake barges.  meant to go in a circle
 globals.launchzone.barges = {}
 
+globals.launchzone.barges.length = 5;
+
 globals.launchzone.barges[0] = {}
 globals.launchzone.barges[0].x = -775
 globals.launchzone.barges[0].y = 63
 globals.launchzone.barges[0].z = 761
 globals.launchzone.barges[0].string = globals.getCoords(globals.launchzone.barges[0])
+
+globals.launchzone.barges[1] = {x=-769, y=63, z=750}
+globals.launchzone.barges[1].string = globals.getCoords(globals.launchzone.barges[1])
+
+globals.launchzone.barges[2] = {x=-769, y=63, z=735}
+globals.launchzone.barges[2].string = globals.getCoords(globals.launchzone.barges[2])
+
+globals.launchzone.barges[3] = {x=-769, y=63, z=720}
+globals.launchzone.barges[3].string = globals.getCoords(globals.launchzone.barges[3])
+
+
+globals.launchzone.barges[4] = {x=-775, y=63, z=711}
+globals.launchzone.barges[4].string = globals.getCoords(globals.launchzone.barges[4])
+
 
 return globals;
