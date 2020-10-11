@@ -27,26 +27,35 @@ tc:add(7.5, function()
 end)
 
 tc:add(5, function() 
-  poly.parallelAll(
+  poly.parallelAll(function()
     firework.complexFire(globals.launchzone.leftFrontTower, 0, true, function(index) 
     local direct = firework.utils.directionVector(globals.launchzone.leftFrontTower.center, globals.launchzone.leftFrontTower[index], {x=-0.1,y=0.1,z=-0.1})
     return {seconds=0.5, direction=direct}
   end, function(index)
     return "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"
   end)
+  end
   ,
+  function()
   firework.complexFire(globals.launchzone.leftBackTower, 0, true, function(index) 
     local direct = firework.utils.directionVector(globals.launchzone.leftBackTower.center, globals.launchzone.leftBackTower[index], {x=-0.1,y=0.1,z=-0.1})
     return {seconds=0.5, direction=direct}
   end, function(index)
     return "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"
   end)
+  end
   )
+end)
+
+tc:add(5.5, function() 
+  firework.multiFire(globals.shuffle(globals.launchzone.wallTop), 0.1, true, {seconds=1, direction="0.0, 1.0, 0.0"}, "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}")
+
+
 end)
 
 tc:add(11, function() 
 
-  firework.multiFire(globals.select(globals.launchzone.leftBackTower, 2,3,4,5,6), 0.1, false, {seconds=1, direction="0.0, 0.5, -0.5"}, "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}")
+  firework.multiFire(globals.select(globals.launchzone.leftBackTower, 2,3,4,5,6), 0.1, false, {seconds=0.3, direction="0.0, 0.5, -0.5"}, "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}")
   
 end)
 
