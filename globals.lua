@@ -1,14 +1,16 @@
 local globals = {}
 
-globals.exec = function(command) 
-  print(command)
-  --commands.execAsync(command)
-  
-end
+
 
 -- returns a coord string for commands
 globals.getCoords = function(coordTable)
   return coordTable.x .. " " .. coordTable.y .. " " .. coordTable.z;
+end 
+
+function cords(x, y, z)
+  local c = {x=x, y=y, z=z}
+  c.string = globals.getCoords(c)
+  return c
 end 
 
 --[[globals.fire = function(coords, firework) 
@@ -28,6 +30,23 @@ globals.centerpoint.string = globals.getCoords(globals.centerpoint)
 
 
 globals.launchzone = {}
+--Castle: 
+
+--Towers: 
+globals.launchzone.leftFrontTower = {}
+globals.launchzone.leftFrontTower.length = 8
+globals.launchzone.leftFrontTower.center = cords(-611, 127, 257)
+
+
+globals.launchzone.leftFrontTower[0] = cords(-611, 114, 261)
+globals.launchzone.leftFrontTower[1] = cords(-608, 113, 260)
+globals.launchzone.leftFrontTower[2] = cords(-607, 114, 257)
+globals.launchzone.leftFrontTower[3] = cords(-608, 113, 254)
+globals.launchzone.leftFrontTower[4] = cords(-611, 114, 253)
+globals.launchzone.leftFrontTower[5] = cords(-614, 113, 254)
+globals.launchzone.leftFrontTower[6] = cords(-615, 114, 257)
+globals.launchzone.leftFrontTower[7] = cords(-614, 113, 260)
+
 --Lake barges.  meant to go in a circle
 globals.launchzone.barges = {}
 

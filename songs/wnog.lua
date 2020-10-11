@@ -3,33 +3,33 @@ package.path = package.path .. ";../?.lua"
 Timecode = require("../timecode")
 globals = require("../globals")
 firework = require("../firework")
+poly = require("../polyfills")
 
 tc = Timecode:create();
 
 --start music
 tc:add(0, function() 
-  globals.exec("playsound minecraft:custom.wnog record @a " .. globals.centerpoint.string .. " " .. globals.volume)
+  poly.exec("playsound minecraft:custom.wnog record @a " .. globals.centerpoint.string .. " " .. globals.volume)
 end)
 tc:add(10, function()
-  globals.exec("stopsound @a record")
+  poly.exec("stopsound @a record")
 end)
 
 tc:add(4.3, function() 
 
-  firework.multiFire(globals.launchzone.barges, 0, true, {seconds=1, direction="0.0, 1.0, 0.0"}, "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:1,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}")
+  firework.multiFire(globals.launchzone.leftFrontTower, 0, true, {seconds=1, direction="0.0, 1.0, 0.0"}, "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:1,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}")
   
 end)
-tc:add(6.3, function() 
+tc:add(7.5, function() 
 
-  firework.multiFire(globals.launchzone.barges, 0, true, {seconds=1, direction="0.0, 1.0, 0.0"}, "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:1,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}")
+  firework.multiFire(globals.launchzone.leftFrontTower, 0.1, false, {seconds=1, direction="0.0, 1.0, 0.0"}, "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:1,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}")
   
 end)
 
-tc:add(1, function() 
+tc:add(5, function() 
 
-  firework.complexFire(globals.launchzone.barges, 0, true, function(index) 
-    local direct = firework.utils.directionVector(globals.centerpoint, globals.launchzone.barges[index])
-    print(tostring(direct.x))
+  firework.complexFire(globals.launchzone.leftFrontTower, 0, true, function(index) 
+    local direct = firework.utils.directionVector(globals.launchzone.leftFrontTower.center, globals.launchzone.leftFrontTower[index])
     return {seconds=1, direction=direct}
   end, function(index)
     return "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:1,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"

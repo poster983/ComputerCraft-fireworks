@@ -15,7 +15,7 @@ firework.fire = function(coords, opts, fireworksItem)
   end
   
   --commands.execAsync
-  globals.exec("summon fireworks_rocket " .. coords .. " {" .. config .. "FireworksItem:" .. fireworksItem .."}") 
+  poly.exec("summon fireworks_rocket " .. coords .. " {" .. config .. "FireworksItem:" .. fireworksItem .."}") 
   
 end
 
@@ -27,11 +27,11 @@ firework.complexFire = function(coordArray, delay, forward, optsCallback, firewo
   while(coordArray.length > x) do 
     local y = x;
     if not forward then
-      y = coordArray.length - x
+      y = (coordArray.length-1) - x
     end
 
     firework.fire(coordArray[y].string, optsCallback(y), fireworksItemCallback(y))
-    if not delay then
+    if delay ~= 0 then
       poly.sleep(delay)
     end
 
