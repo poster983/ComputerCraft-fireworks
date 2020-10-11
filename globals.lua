@@ -14,6 +14,18 @@ function cords(x, y, z)
 end 
 
 
+globals.select = function(table, ...)
+  local newTable = {}
+  local length = 0
+  for i,v in ipairs(arg) do
+    --print(v)
+    newTable[i] = table[v]
+    length = i
+  end
+  newTable.length = length
+  return newTable
+end
+
 --[[globals.combineCords = function(nestedTable, length) 
   local ittr = {}
   local x = 0
@@ -49,7 +61,7 @@ globals.launchzone = {}
 
 --Towers: 
 globals.launchzone.leftFrontTower = {}
-globals.launchzone.leftFrontTower.length = 8
+--globals.launchzone.leftFrontTower.length = 8
 globals.launchzone.leftFrontTower.center = cords(-611, 127, 257)
 
 
@@ -63,7 +75,7 @@ globals.launchzone.leftFrontTower[6] = cords(-615, 114, 257)
 globals.launchzone.leftFrontTower[7] = cords(-614, 113, 260)
 
 globals.launchzone.leftBackTower = {}
-globals.launchzone.leftBackTower.length = 8
+--globals.launchzone.leftBackTower.length = 8
 globals.launchzone.leftBackTower.center = cords(-611-27, 127+7, 257-2)
 
 globals.launchzone.leftBackTower[0] = cords(-611-27, 114+7, 261-2)

@@ -31,6 +31,15 @@ else
   end
 end
 
+if parallel then 
+  polyfill.parallelAll = parallel.waitForAll 
+else 
+  polyfill.parallelAll = function(...)
+    for i,v in ipairs(arg) do
+        v()
+    end
+  end 
+end 
 
 
 return polyfill

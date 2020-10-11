@@ -22,7 +22,19 @@ end
  -- fireworksItemCallback(index)
  -- optsCallback(index)
 firework.complexFire = function(coordArray, delay, forward, optsCallback, fireworksItemCallback) 
-
+  --print(table.getn(coordArray))
+  for x,v in ipairs(coordArray) do
+    local y = x
+    if not forward then
+      y = table.getn(coordArray) - x
+    end
+    --print(y)
+    firework.fire(v.string, optsCallback(y), fireworksItemCallback(y))
+    if delay ~= 0 then
+      poly.sleep(delay)
+    end
+  end
+  --[[
   local x=0
   while(coordArray.length > x) do 
     local y = x;
@@ -36,7 +48,7 @@ firework.complexFire = function(coordArray, delay, forward, optsCallback, firewo
     end
 
     x = x + 1
-  end
+  end]]
 end
 
 firework.multiFire = function(coordArray, delay, forward, opts, fireworksItem) 
