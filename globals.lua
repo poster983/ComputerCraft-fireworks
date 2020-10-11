@@ -13,6 +13,24 @@ function cords(x, y, z)
   return c
 end 
 
+
+--[[globals.combineCords = function(nestedTable, length) 
+  local ittr = {}
+  local x = 0
+  while(length > x) do 
+
+  end
+  for i,value in ipairs(nestedTable) do 
+    print(i,value) 
+    if not ittr[i] then 
+      ittr[i] = 0
+    end
+
+  end
+
+
+end --]]
+
 --[[globals.fire = function(coords, firework) 
     --commands.execAsync
     globals.exec("summon fireworks_rocket " .. coords .. " " .. firework)
@@ -43,6 +61,19 @@ globals.launchzone.leftFrontTower[4] = cords(-611, 114, 253)
 globals.launchzone.leftFrontTower[5] = cords(-614, 113, 254)
 globals.launchzone.leftFrontTower[6] = cords(-615, 114, 257)
 globals.launchzone.leftFrontTower[7] = cords(-614, 113, 260)
+
+globals.launchzone.leftBackTower = {}
+globals.launchzone.leftBackTower.length = 8
+globals.launchzone.leftBackTower.center = cords(-611-27, 127+7, 257-2)
+
+globals.launchzone.leftBackTower[0] = cords(-611-27, 114+7, 261-2)
+globals.launchzone.leftBackTower[1] = cords(-608-27, 113+7, 260-2)
+globals.launchzone.leftBackTower[2] = cords(-607-27, 114+7, 257-2)
+globals.launchzone.leftBackTower[3] = cords(-608-27, 113+7, 254-2)
+globals.launchzone.leftBackTower[4] = cords(-611-27, 114+7, 253-2)
+globals.launchzone.leftBackTower[5] = cords(-614-27, 113+7, 254-2)
+globals.launchzone.leftBackTower[6] = cords(-615-27, 114+7, 257-2)
+globals.launchzone.leftBackTower[7] = cords(-614-27, 113+7, 260-2)
 
 --Lake barges.  meant to go in a circle
 globals.launchzone.barges = {}

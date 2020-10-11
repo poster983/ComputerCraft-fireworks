@@ -67,7 +67,7 @@ firework.utils.directionVector = function(centerpoint, launchZone, multipliers)
     local xv = (centerpoint.x - launchZone.x) * multipliers.x
     local yv = (centerpoint.y - launchZone.y) * multipliers.y
     local zv = (centerpoint.z - launchZone.z) * multipliers.z
-    return string.format("%.2f", xv) .. ", " .. string.format("%.2f", xv) .. ", " .. string.format("%.2f", zv);
+    return string.format("%.2f", xv) .. ", " .. string.format("%.2f", yv) .. ", " .. string.format("%.2f", zv);
 
 end
 
