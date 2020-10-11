@@ -1,4 +1,5 @@
 globals = require("./globals")
+poly = require("./polyfills")
 local firework = {}
 
 -- {seconds: Int, direction: "x, y, z"}
@@ -18,8 +19,9 @@ firework.fire = function(coords, opts, fireworksItem)
   
 end
 
-
-firework.multiFire = function(coordArray, delay, forward, opts, fireworksItem) 
+ -- fireworksItemCallback(index)
+ -- optsCallback(index)
+firework.complexFire = function(coordArray, delay, forward, optsCallback, fireworksItemCallback) 
 
   local x=0
   while(coordArray.length > x) do 
@@ -28,13 +30,44 @@ firework.multiFire = function(coordArray, delay, forward, opts, fireworksItem)
       y = coordArray.length - x
     end
 
-    firework.fire(coordArray[y].string, opts, fireworksItem)
-   
-    --sleep(delay)
+    firework.fire(coordArray[y].string, optsCallback(y), fireworksItemCallback(y))
+    if not delay then
+      poly.sleep(delay)
+    end
 
     x = x + 1
   end
+end
 
+firework.multiFire = function(coordArray, delay, forward, opts, fireworksItem) 
+  firework.complexFire(coordArray, delay, forward, function(index)
+    return opts
+  end, function(index)
+    return fireworksItem
+  end)
+end
+
+
+firework.utils = {}
+-- Will return a direction string for opts
+-- centerpoint is a table of coords (x y z) which is the centerpoint 
+firework.utils.directionVector = function(centerpoint, launchZone, multipliers)
+    if not multipliers then 
+      multipliers = {}
+    end
+    if not multipliers.x then 
+      multipliers.x = 1
+    end
+    if not multipliers.y then 
+      multipliers.y = 1
+    end
+    if not multipliers.z then 
+      multipliers.z = 1
+    end
+    local xv = (centerpoint.x - launchZone.x) * multipliers.x
+    local yv = (centerpoint.y - launchZone.y) * multipliers.y
+    local zv = (centerpoint.z - launchZone.z) * multipliers.z
+    return string.format("%.2f", xv) .. ", " .. string.format("%.2f", xv) .. ", " .. string.format("%.2f", zv);
 
 end
 

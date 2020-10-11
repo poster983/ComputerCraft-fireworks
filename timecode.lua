@@ -1,6 +1,8 @@
 -- CraftOS Lua Script  that attempts to implement a timecode function for time sensitive events
+poly = require("./polyfills")
 local Timecode = {}
 local Cue = {}
+
 
 
 function Timecode:create(o)
@@ -15,28 +17,29 @@ end
 
 -- Returns a co routine
 -- user must provide a time Function via an api like os.clock().  This has been left out as lua is bad at portability
-function Timecode:start(timeFunction)
-	local epoch = timeFunction()
+function Timecode:start()
+	local epoch = os.clock()
 	self.triggered = 0
-	self.coroutine = coroutine.create(function ()
-			while self.cuelist.length ~= self.triggered
-			do
-				local x=0
-				while self.cuelist[x] do   -- Loop though a table
+	--self.coroutine = coroutine.create(function ()
+	while self.cuelist.length ~= self.triggered
+	do
+		local x=0
+		while self.cuelist[x] do   -- Loop though a table
 					
-					if self.cuelist[x].lastTriggerd ~= epoch and self.cuelist[x].time < (timeFunction() - epoch)
-					then
-						self.cuelist[x].callback();
-						self.cuelist[x].lastTriggerd = epoch
-						self.triggered = self.triggered +1
-					end
-					x=x+1
-				end
+			if self.cuelist[x].lastTriggerd ~= epoch and self.cuelist[x].time < (os.clock() - epoch)
+			then
+				self.cuelist[x].callback();
+				self.cuelist[x].lastTriggerd = epoch
+				self.triggered = self.triggered +1
 			end
-	end)
-	coroutine.resume(self.coroutine)
+			x=x+1
+		end
+		poly.sleep(0.1)
+	end
+	--end)
+	--coroutine.resume(self.coroutine)
 
-	return self.coroutine
+	--return self.coroutine
 end
 
 function Timecode:add(time, callback)

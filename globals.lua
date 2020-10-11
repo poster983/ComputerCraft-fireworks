@@ -2,7 +2,7 @@ local globals = {}
 
 globals.exec = function(command) 
   print(command)
-  commands.execAsync(command)
+  --commands.execAsync(command)
   
 end
 
