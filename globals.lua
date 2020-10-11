@@ -19,14 +19,11 @@ end
 end]]
 
 -- volume of music 
-globals.volume = 6
+globals.volume = 10
 
 -- Used for music and particle effects
-globals.centerpoint = {}
-globals.centerpoint.x = -782
-globals.centerpoint.y = 62
-globals.centerpoint.z = 739
-globals.centerpoint.string = globals.getCoords(globals.centerpoint)
+globals.centerpoint = cords(-669,100,207)
+
 
 
 globals.launchzone = {}
