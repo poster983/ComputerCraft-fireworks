@@ -25,11 +25,13 @@ firework.complexFire = function(coordArray, delay, forward, optsCallback, firewo
   --print(table.getn(coordArray))
   for x,v in ipairs(coordArray) do
     local y = x
+
     if not forward then
-      y = table.getn(coordArray) - x
+      
+      y = (table.getn(coordArray)) - (x-1)
     end
-    --print(y)
-    firework.fire(v.string, optsCallback(y), fireworksItemCallback(y))
+    
+    firework.fire(coordArray[y].string, optsCallback(y), fireworksItemCallback(y))
     if delay ~= 0 then
       poly.sleep(delay)
     end

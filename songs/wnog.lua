@@ -61,7 +61,7 @@ end)
 
 tc:add(13, function() 
   firework.complexFire(globals.launchzone.wallTop, 0, true, function(index) 
-    local direct = firework.utils.directionVector(globals.launchzone.wallTop.center, globals.launchzone.wallTop[index], {x=0.1,y=0.1,z=0.1})
+    local direct = firework.utils.directionVector(globals.launchzone.wallTop.center, globals.launchzone.wallTop[index], {x=0.1,y=0.1,z=0.01})
     return {seconds=0.5, direction=direct}
   end, function(index)
     return "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"
@@ -70,7 +70,7 @@ end)
 
 tc:add(14, function() 
   firework.complexFire(globals.launchzone.wallTop, 0.1, true, function(index) 
-    local direct = firework.utils.directionVector(globals.launchzone.wallTop.center, globals.launchzone.wallTop[index], {x=0.1,y=0.1,z=0.1})
+    local direct = firework.utils.directionVector(globals.launchzone.wallTop.center, globals.launchzone.wallTop[index], {x=0.1,y=0.1,z=0.01})
     return {seconds=0.5, direction=direct}
   end, function(index)
     return "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"
@@ -79,7 +79,7 @@ end)
 
 tc:add(16, function() 
   firework.complexFire(globals.launchzone.wallTop, 0.1, false, function(index) 
-    local direct = firework.utils.directionVector(globals.launchzone.wallTop.center, globals.launchzone.wallTop[index], {x=0.1,y=0.1,z=0.1})
+    local direct = firework.utils.directionVector(globals.launchzone.wallTop.center, globals.launchzone.wallTop[index], {x=0.1,y=0.1,z=0.01})
     return {seconds=0.5, direction=direct}
   end, function(index)
     return "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"
