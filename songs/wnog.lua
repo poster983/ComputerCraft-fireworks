@@ -11,7 +11,7 @@ tc = Timecode:create();
 tc:add(0, function() 
   poly.exec("playsound minecraft:custom.wnog record @a " .. globals.centerpoint.string .. " " .. globals.volume)
 end)
-tc:add(15, function()
+tc:add(20, function()
   poly.exec("stopsound @a record")
 end)
 
@@ -48,7 +48,7 @@ tc:add(5, function()
 end)
 
 tc:add(5.5, function() 
-  firework.multiFire(globals.shuffle(globals.launchzone.wallTop), 0.1, true, {seconds=1, direction="0.0, 1.0, 0.0"}, "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}")
+  firework.multiFire(globals.shuffle(globals.launchzone.wallTop), 0.1, true, {seconds=0.5, direction="0.0, 1.0, 0.0"}, "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}")
 
 
 end)
@@ -59,7 +59,33 @@ tc:add(11, function()
   
 end)
 
-globals.select(globals.launchzone.leftBackTower, 2,3,4,5,6)
+tc:add(13, function() 
+  firework.complexFire(globals.launchzone.wallTop, 0, true, function(index) 
+    local direct = firework.utils.directionVector(globals.launchzone.wallTop.center, globals.launchzone.wallTop[index], {x=0.1,y=0.1,z=0.1})
+    return {seconds=0.5, direction=direct}
+  end, function(index)
+    return "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"
+  end)
+end)
+
+tc:add(14, function() 
+  firework.complexFire(globals.launchzone.wallTop, 0.1, true, function(index) 
+    local direct = firework.utils.directionVector(globals.launchzone.wallTop.center, globals.launchzone.wallTop[index], {x=0.1,y=0.1,z=0.1})
+    return {seconds=0.5, direction=direct}
+  end, function(index)
+    return "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"
+  end)
+end)
+
+tc:add(16, function() 
+  firework.complexFire(globals.launchzone.wallTop, 0.1, false, function(index) 
+    local direct = firework.utils.directionVector(globals.launchzone.wallTop.center, globals.launchzone.wallTop[index], {x=0.1,y=0.1,z=0.1})
+    return {seconds=0.5, direction=direct}
+  end, function(index)
+    return "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"
+  end)
+end)
+
 
 tc:start(function()
   return os.clock()
