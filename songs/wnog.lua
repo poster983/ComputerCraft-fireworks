@@ -95,6 +95,29 @@ tc:add(18, function()
   end)
 end)
 
+tc:add(1, function() 
+  firework.utils.radial(
+    globals.launchzone.chapel.northPoint.x,
+    globals.launchzone.chapel.northPoint.y,
+    0.2, 10, 0, true, 
+    function(x,y,iterator)
+      
+      local launch = globals.cords(x,y,globals.launchzone.chapel.northPoint.z)
+      local direct = firework.utils.directionVector(
+        globals.launchzone.chapel.northPoint, 
+        launch, 
+        {x=0.1,y=0.1,z=0.1}
+      )
+      firework.fire(
+        launch.string,
+        {seconds= 0.3, direction=direct},
+        "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"
+        )
+    end
+  )
+
+end)
+
 
 tc:start(function()
   return os.clock()

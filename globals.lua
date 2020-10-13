@@ -4,7 +4,7 @@ math.randomseed(os.time())
 
 -- returns a coord string for commands
 globals.getCoords = function(coordTable)
-  return coordTable.x .. " " .. coordTable.y .. " " .. coordTable.z;
+  return string.format("%.3f", coordTable.x) .. " " .. string.format("%.3f", coordTable.y) .. " " .. string.format("%.3f", coordTable.z);
 end 
 
 function cords(x, y, z)
@@ -13,6 +13,7 @@ function cords(x, y, z)
   return c
 end 
 
+globals.cords = cords
 
 globals.select = function(table, ...)
   local newTable = {}
@@ -124,6 +125,8 @@ globals.launchzone.wallTop[20] = cords(-627, 106, 175)
 globals.launchzone.wallTop[21] = cords(-628, 107, 172)
 globals.launchzone.wallTop[22] = cords(-629, 107, 169)
 
-
+-- Chapel 
+globals.launchzone.chapel = {}
+globals.launchzone.chapel.northPoint = cords(-670, 220, 121)
 
 return globals;

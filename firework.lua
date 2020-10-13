@@ -3,8 +3,8 @@ poly = require("./polyfills")
 local firework = {}
 
 -- {seconds: Int, direction: "x, y, z"}
-firework.fire = function(coords, opts, fireworksItem)
-  config = ""
+firework.fire = function(cordString, opts, fireworksItem)
+  local config = ""
   if opts.seconds then
     local ticks = opts.seconds*20
     config = "LifeTime:".. ticks..","
@@ -15,7 +15,7 @@ firework.fire = function(coords, opts, fireworksItem)
   end
   
   --commands.execAsync
-  poly.exec("summon fireworks_rocket " .. coords .. " {" .. config .. "FireworksItem:" .. fireworksItem .."}") 
+  poly.exec("summon fireworks_rocket " .. cordString .. " {" .. config .. "FireworksItem:" .. fireworksItem .."}") 
   
 end
 
@@ -53,12 +53,24 @@ firework.complexFire = function(coordArray, delay, forward, optsCallback, firewo
   end]]
 end
 
+
+--Helper for complex fire
 firework.multiFire = function(coordArray, delay, forward, opts, fireworksItem) 
   firework.complexFire(coordArray, delay, forward, function(index)
     return opts
   end, function(index)
     return fireworksItem
   end)
+end
+
+
+
+firework.volumetric = {}
+
+--locationCallback(x,y,index)
+firework.volumetric.z = function(baseCords, x,y,z, count, delay, locationCallback, optsCallback, fireworksItemCallback)
+--TODO
+
 end
 
 
@@ -84,5 +96,27 @@ firework.utils.directionVector = function(centerpoint, launchZone, multipliers)
     return string.format("%.2f", xv) .. ", " .. string.format("%.2f", yv) .. ", " .. string.format("%.2f", zv);
 
 end
+
+
+--Will Use a and b are the starting 2d cords
+--firecallback(a,b,iteration) 
+firework.utils.radial = function(a,b, radius, count, delay, forward, fireCallback)
+  local step = 360/count
+  local i = 0
+  while i < 360 do 
+    local angle = i * math.pi / 180
+    local pta = a + radius * math.cos( angle )
+    local ptb = b + radius * math.sin( angle )
+
+    fireCallback(pta, ptb, i)
+
+    if delay ~= 0 then
+      poly.sleep(delay)
+    end
+
+    i = i+step
+  end
+
+end 
 
 return firework;
