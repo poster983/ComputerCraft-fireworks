@@ -133,24 +133,4 @@ globals.launchzone.chapel.northPoint = cords(-670, 220, 121)
 
 
 
-
-
--- House and train track:
-
-globals.ht = {} 
-
-
-
-
-
--- Used for music and particle effects
-globals.ht.centerpoint = cords(-613,100,659)
-
-
-
-
-
-
-
-
 return globals;

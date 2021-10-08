@@ -4,12 +4,17 @@ globals = require("../globals")
 firework = require("../firework")
 poly = require("../polyfills")
 
+local export = {}
+
 -- firework strings
 local blue_mine = "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"
 local red_mine = "{id:fireworks,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,8073150],FadeColors:[I;15435844]}]}}}"
 local creeper = "{id:fireworks,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:3,Flicker:1,Trail:1,Colors:[I;1973019,3887386,4312372],FadeColors:[I;11743532,11250603]}]}}}"
 
 globals.ht = {}
+
+-- Used for music and particle effects
+globals.ht.centerpoint = cords(-613,100,659)
 -- launch Locations
 globals.ht.lz = {}
 
@@ -170,14 +175,14 @@ end)
     firework.utils.radial(
       globals.ht.lz.track.target.x,
       globals.ht.lz.track.target.y,
-      0, 10, 0, true, 
+      1, 10, 0.1, true, 
       function(x,y,iterator)
       
         local launch = globals.cords(x,y,globals.ht.lz.track.target.z)
         local direct = firework.utils.directionVector(
           globals.ht.lz.track.target, 
             launch, 
-            {x=0.3,y=0.3,z=0.3}
+            {x=-5,y=-8,z=-5}
         )
         firework.fire(
             launch.string,
@@ -189,7 +194,10 @@ end)
   
   end)
 
-
-tc:start(function()
+export.start = function() 
+  tc:start(function()
     return os.clock()
   end)
+ end
+
+return export
