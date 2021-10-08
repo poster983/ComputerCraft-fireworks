@@ -139,12 +139,12 @@ globals.launchzone.chapel.northPoint = cords(-670, 220, 121)
 
 globals.ht = {} 
 
--- volume of music 
 
-globals.ht.volume = 10
+
+
 
 -- Used for music and particle effects
-globals.ht.centerpoint = cords(-669,100,207)
+globals.ht.centerpoint = cords(-613,100,659)
 
 
 -- launch Locations
