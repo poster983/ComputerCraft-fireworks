@@ -7,7 +7,8 @@ poly = require("../polyfills")
 tc = Timecode:create();
 
 tc:add(2, function() 
-    poly.parallelAll(function()
+    poly.parallelAll(
+      function()
         firework.utils.radial(
             globals.ht.lz.track.switch.x,
             globals.ht.lz.track.switch.y,
@@ -37,7 +38,7 @@ tc:add(2, function()
           return "{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Trail:1b,Colors:[I;393198,524543],FadeColors:[I;16777215]}]}}}"
         end)
       end
-      ),
+      ,
       function() 
         firework.complexFire(globals.ht.lz.house.bottom_right, 0.1, true, function(index) 
           local direct = firework.utils.directionVector(globals.ht.lz.house.bottom_right.center, globals.ht.lz.house.bottom_right[index], {x=-0.1,y=0.1,z=-0.1})
@@ -47,7 +48,7 @@ tc:add(2, function()
         end)
       end
   end)
-
+end)
 
   tc:add(3, function() 
     firework.complexFire(globals.ht.lz.house.bottom_left, 0.1, true, function(index) 
