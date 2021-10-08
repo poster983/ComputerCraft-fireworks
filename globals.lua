@@ -156,6 +156,7 @@ globals.ht.lz.track = {}
 globals.ht.lz.track.outgoing = cords(-590, 71,672)
 globals.ht.lz.track.incoming = cords(-594, 71,672)
 
+globals.ht.lz.track.switch = cords(-592, 72,685)
 
 -- House:
 globals.ht.lz.house = {}
@@ -186,6 +187,9 @@ globals.ht.lz.house.bottom_right[5] = cords(-628,90,647)
 globals.ht.lz.house.bottom_right[6] = cords(-628,90,649)
 globals.ht.lz.house.bottom_right[7] = cords(-630,90,651)
 globals.ht.lz.house.bottom_right[8] = cords(-632,90,652)
+
+
+
 
 
 return globals;
