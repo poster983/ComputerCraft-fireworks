@@ -147,46 +147,7 @@ globals.ht = {}
 globals.ht.centerpoint = cords(-613,100,659)
 
 
--- launch Locations
-globals.ht.lz = {}
 
---Launch Track
-globals.ht.lz.track = {}
-
-globals.ht.lz.track.outgoing = cords(-590, 71,672)
-globals.ht.lz.track.incoming = cords(-594, 71,672)
-
-globals.ht.lz.track.switch = cords(-592, 72,685)
-
--- House:
-globals.ht.lz.house = {}
-
---bottom left 
-globals.ht.lz.house.bottom_left = {}
-globals.ht.lz.house.bottom_left.center = cords(-646,90,661)
-
-globals.ht.lz.house.bottom_left[1] = cords(-640,90,661)
-globals.ht.lz.house.bottom_left[2] = cords(-641,90,663)
-globals.ht.lz.house.bottom_left[3] = cords(-642,90,665)
-globals.ht.lz.house.bottom_left[4] = cords(-644,90,666)
-globals.ht.lz.house.bottom_left[5] = cords(-646,90,667)
-globals.ht.lz.house.bottom_left[6] = cords(-648,90,666)
-globals.ht.lz.house.bottom_left[7] = cords(-650,90,665)
-globals.ht.lz.house.bottom_left[8] = cords(-651,90,663)
-globals.ht.lz.house.bottom_left[9] = cords(-652,90,661)
-
---bottom right
-globals.ht.lz.house.bottom_right = {}
-globals.ht.lz.house.bottom_right.center = cords(-632,91,645)
-
-globals.ht.lz.house.bottom_right[1] = cords(-630,90,639)
-globals.ht.lz.house.bottom_right[2] = cords(-628,90,641)
-globals.ht.lz.house.bottom_right[3] = cords(-628,90,643)
-globals.ht.lz.house.bottom_right[4] = cords(-627,90,645)
-globals.ht.lz.house.bottom_right[5] = cords(-628,90,647)
-globals.ht.lz.house.bottom_right[6] = cords(-628,90,649)
-globals.ht.lz.house.bottom_right[7] = cords(-630,90,651)
-globals.ht.lz.house.bottom_right[8] = cords(-632,90,652)
 
 
 
