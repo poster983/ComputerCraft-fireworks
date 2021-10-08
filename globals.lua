@@ -178,14 +178,14 @@ globals.ht.lz.house.bottom_left[9] = cords(-652,90,661)
 globals.ht.lz.house.bottom_right = {}
 globals.ht.lz.house.bottom_right.center = cords(-632,91,645)
 
-globals.ht.lz.house.bottom_right[] = cords(-630,90,639)
-globals.ht.lz.house.bottom_right[] = cords(-628,90,641)
-globals.ht.lz.house.bottom_right[] = cords(-628,90,643)
-globals.ht.lz.house.bottom_right[] = cords(-627,90,645)
-globals.ht.lz.house.bottom_right[] = cords(-628,90,647)
-globals.ht.lz.house.bottom_right[] = cords(-628,90,649)
-globals.ht.lz.house.bottom_right[] = cords(-630,90,651)
-globals.ht.lz.house.bottom_right[] = cords(-632,90,652)
+globals.ht.lz.house.bottom_right[1] = cords(-630,90,639)
+globals.ht.lz.house.bottom_right[2] = cords(-628,90,641)
+globals.ht.lz.house.bottom_right[3] = cords(-628,90,643)
+globals.ht.lz.house.bottom_right[4] = cords(-627,90,645)
+globals.ht.lz.house.bottom_right[5] = cords(-628,90,647)
+globals.ht.lz.house.bottom_right[6] = cords(-628,90,649)
+globals.ht.lz.house.bottom_right[7] = cords(-630,90,651)
+globals.ht.lz.house.bottom_right[8] = cords(-632,90,652)
 
 
 return globals;
