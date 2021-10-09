@@ -131,14 +131,57 @@ end)
   end)
 
  
+  tc:add(5, function() 
+    poly.parallelAll(
+      function() 
+        firework.complexFire(globals.ht.lz.house.bottom_left, 0.1, false, function(index) 
+          local direct = firework.utils.directionVector(globals.ht.lz.house.bottom_left.center, globals.ht.lz.house.bottom_left[index], {x=-0.1,y=0.1,z=-0.1})
+          return {seconds=0.5, direction=direct}
+        end, function(index)
+          return blue_mine
+        end)
+      end
+      ,
+      function() 
+        firework.complexFire(globals.ht.lz.house.bottom_right, 0.1, true, function(index) 
+          local direct = firework.utils.directionVector(globals.ht.lz.house.bottom_right.center, globals.ht.lz.house.bottom_right[index], {x=-0.1,y=0.1,z=-0.1})
+          return {seconds=0.5, direction=direct}
+        end, function(index)
+          return blue_mine
+        end)
+      end
+  )
+end)
 
-  tc:add(7, function() 
+tc:add(6, function() 
+  poly.parallelAll(
+    function()
+      firework.complexFire(globals.ht.lz.house.bottom_left, 0.1, true, function(index) 
+        local direct = firework.utils.directionVector(globals.ht.lz.house.bottom_left.center, globals.ht.lz.house.bottom_left[index], {x=-0.1,y=0.1,z=-0.1})
+        return {seconds=0.5, direction=direct}
+      end, function(index)
+        return red_mine
+      end)
+    end -- block
+    ,
+    function()
+      firework.complexFire(globals.ht.lz.house.bottom_right, 0.1, false, function(index) 
+        local direct = firework.utils.directionVector(globals.ht.lz.house.bottom_right.center, globals.ht.lz.house.bottom_right[index], {x=-0.1,y=0.1,z=-0.1})
+        return {seconds=0.5, direction=direct}
+      end, function(index)
+        return red_mine
+      end)
+    end -- block
+  )
+end)
+
+  tc:add(8, function() 
     firework.fire(globals.ht.lz.track.outgoing.string, {seconds=0.1, direction="0.0, 1.0, -0.5"}, red_mine)
     firework.fire(globals.ht.lz.track.incoming.string, {seconds=0.1, direction="0.0, 1.0, -0.5"}, red_mine)
   end)
 
 
-  tc:add(8, function() 
+  tc:add(8.5, function() 
     poly.parallelAll(
       function()
         firework.complexFire(globals.ht.lz.house.bottom_left, 0, true, function(index) 
@@ -170,19 +213,19 @@ end)
 
 
 
-  tc:add(9, function() 
+  tc:add(10, function() 
 
     firework.utils.radial(
       globals.ht.lz.track.target.x,
       globals.ht.lz.track.target.y,
-      1, 10, 0.1, true, 
+      0.1, 10, 0.1, true, 
       function(x,y,iterator)
       
         local launch = globals.cords(x,y,globals.ht.lz.track.target.z)
         local direct = firework.utils.directionVector(
           globals.ht.lz.track.target, 
             launch, 
-            {x=-5,y=-8,z=-5}
+            {x=-4,y=-8,z=-4}
         )
         firework.fire(
             launch.string,
